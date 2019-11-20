@@ -1,0 +1,542 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
+namespace Noughts_and_crosses
+{
+    class Program
+    {
+        static void LineBreak()
+        {
+            Console.WriteLine(" ");
+        }
+
+        static void ShortDelay()
+        {
+            Thread.Sleep(750);
+        }
+
+        static void LongDelay()
+        {
+            Thread.Sleep(2000);
+        }
+
+        static void Main(string[] args)
+        {
+            string[,] array5;
+            array5 = new string[,] { { " 1 ", " 2 ", " 3 " }, { " 4 ", " 5 ", " 6 " }, { " 7 ", " 8 ", " 9 " } };
+            Boolean Complete;
+            Boolean CompComplete;
+            Boolean GameComplete = false;
+            Boolean UserWins = false;
+            Boolean CompWins = false;
+
+            Console.WriteLine("WELCOME!");
+            LongDelay();
+            LineBreak();
+            LineBreak();
+
+            int turn = 1;
+            do
+            {
+                //Put game full here
+
+                if (turn == 1) // users
+                {
+                    Complete = false;
+                    do
+                    {
+
+                        //Display Array
+                        for (int y = 0; y < 3; y++)
+                        {
+                            Console.Write(array5[y, 0]);
+                            Console.Write(array5[y, 1]);
+                            Console.WriteLine(array5[y, 2]);
+                        }
+
+                        LineBreak();
+                        ShortDelay();
+
+                        Console.WriteLine("Please enter where u want to place your counter");
+                        int Place = Convert.ToInt32(Console.ReadLine());
+
+                        if (Place == 1)
+                        {
+                            if (array5[0, 0] == " X " || array5[0, 0] == " O ")
+                            {
+                            }
+                            else
+                            {
+                                array5[0, 0] = " X ";
+                                Complete = true;
+                            }
+                        }
+                        else
+                        {
+                            if (Place == 2)
+                            {
+                                if (array5[0, 1] == " X " || array5[0, 1] == " O ")
+                                {
+                                }
+                                else
+                                {
+                                    array5[0, 1] = " X ";
+                                    Complete = true;
+                                }
+                            }
+                            else
+                            {
+                                if (Place == 3)
+                                {
+                                    if (array5[0, 2] == " X " || array5[0, 2] == " O ")
+                                    {
+                                    }
+                                    else
+                                    {
+                                        array5[0, 2] = " X ";
+                                        Complete = true;
+                                    }
+                                }
+                                else
+                                {
+                                    if (Place == 4)
+                                    {
+                                        if (array5[1, 0] == " X " || array5[1, 0] == " O ")
+                                        {
+                                        }
+                                        else
+                                        {
+                                            array5[1, 0] = " X ";
+                                            Complete = true;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (Place == 5)
+                                        {
+                                            if (array5[1, 1] == " X " || array5[1, 1] == " O ")
+                                            {
+                                            }
+                                            else
+                                            {
+                                                array5[1, 1] = " X ";
+                                                Complete = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (Place == 6)
+                                            {
+                                                if (array5[1, 2] == " X " || array5[1, 2] == " O ")
+                                                {
+                                                }
+                                                else
+                                                {
+                                                    array5[1, 2] = " X ";
+                                                    Complete = true;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (Place == 7)
+                                                {
+                                                    if (array5[2, 0] == " X " || array5[2, 0] == " O ")
+                                                    {
+                                                    }
+                                                    else
+                                                    {
+                                                        array5[2, 0] = " X ";
+                                                        Complete = true;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (Place == 8)
+                                                    {
+                                                        if (array5[2, 1] == " X " || array5[2, 1] == " O ")
+                                                        {
+                                                        }
+                                                        else
+                                                        {
+                                                            array5[2, 1] = " X ";
+                                                            Complete = true;
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Place == 9)
+                                                        {
+                                                            if (array5[2, 2] == " X " || array5[2, 2] == " O ")
+                                                            {
+                                                            }
+                                                            else
+                                                            {
+                                                                array5[2, 2] = " X ";
+                                                                Complete = true;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine("Invalid place please try again");
+                                                            LineBreak();
+                                                            ShortDelay();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    } while (Complete == false);
+
+                    LineBreak();
+
+                    //Display Array
+                    for (int y = 0; y < 3; y++)
+                    {
+                        Console.Write(array5[y, 0]);
+                        Console.Write(array5[y, 1]);
+                        Console.WriteLine(array5[y, 2]);
+                    }
+
+                    LineBreak();
+                    
+                    //Check if user wins
+                    if (array5[0, 0] == " X " && array5[0, 1] == " X " && array5[0, 2] == " X ")
+                    {
+                        UserWins = true;
+                        GameComplete = true;
+                    }
+                    else
+                    {
+                        if (array5[1, 0] == " X " && array5[1, 1] == " X " && array5[1, 2] == " X ")
+                        {
+                            UserWins = true;
+                            GameComplete = true;
+                        }
+                        else
+                        {
+                            if (array5[2, 0] == " X " && array5[2, 1] == " X " && array5[2, 2] == " X ")
+                            {
+                                UserWins = true;
+                                GameComplete = true;
+                            }
+                            else
+                            {
+                                if (array5[0, 0] == " X " && array5[1, 0] == " X " && array5[2, 0] == " X ")
+                                {
+                                    UserWins = true;
+                                    GameComplete = true;
+                                }
+                                else
+                                {
+                                    if (array5[0, 1] == " X " && array5[1, 1] == " X " && array5[2, 1] == " X ")
+                                    {
+                                        UserWins = true;
+                                        GameComplete = true;
+                                    }
+                                    else
+                                    {
+                                        if (array5[0, 2] == " X " && array5[1, 2] == " X " && array5[2, 2] == " X ")
+                                        {
+                                            UserWins = true;
+                                            GameComplete = true;
+                                        }
+                                        else //diagonals
+                                        {
+                                            if (array5[0, 0] == " X " && array5[1, 1] == " X " && array5[2, 2] == " X ")
+                                            {
+                                                UserWins = true;
+                                                GameComplete = true;
+                                            }
+                                            else
+                                            {
+                                                if (array5[0, 2] == " X " && array5[1, 1] == " X " && array5[2, 0] == " X ")
+                                                {
+                                                    UserWins = true;
+                                                    GameComplete = true;
+                                                }
+                                                else
+                                                {
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Computer's turn");
+                    Console.WriteLine("Please wait");
+                    LineBreak();
+                    LineBreak();
+                    LongDelay();
+
+                    CompComplete = false;
+                    do
+                    {
+                        Random random = new Random();
+                        int RN = random.Next(1, 10);
+
+                        if (RN == 1)
+                        {
+                            if (array5[0, 0] == " X " || array5[0, 0] == " O ")
+                            {
+                            }
+                            else
+                            {
+                                array5[0, 0] = " O ";
+                                CompComplete = true;
+                            }
+                        }
+                        else
+                        {
+                            if (RN == 2)
+                            {
+                                if (array5[0, 1] == " X " || array5[0, 1] == " O ")
+                                {
+                                }
+                                else
+                                {
+                                    array5[0, 1] = " O ";
+                                    CompComplete = true;
+                                }
+                            }
+                            else
+                            {
+                                if (RN == 3)
+                                {
+                                    if (array5[0, 2] == " X " || array5[0, 2] == " O ")
+                                    {
+                                    }
+                                    else
+                                    {
+                                        array5[0, 2] = " O ";
+                                        CompComplete = true;
+                                    }
+                                }
+                                else
+                                {
+                                    if (RN == 4)
+                                    {
+                                        if (array5[1, 0] == " X " || array5[1, 0] == " O ")
+                                        {
+                                        }
+                                        else
+                                        {
+                                            array5[1, 0] = " O ";
+                                            CompComplete = true;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (RN == 5)
+                                        {
+                                            if (array5[1, 1] == " X " || array5[1, 1] == " O ")
+                                            {
+                                            }
+                                            else
+                                            {
+                                                array5[1, 1] = " O ";
+                                                CompComplete = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (RN == 6)
+                                            {
+                                                if (array5[1, 2] == " X " || array5[1, 2] == " O ")
+                                                {
+                                                }
+                                                else
+                                                {
+                                                    array5[1, 2] = " O ";
+                                                    CompComplete = true;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (RN == 7)
+                                                {
+                                                    if (array5[2, 0] == " X " || array5[2, 0] == " O ")
+                                                    {
+                                                    }
+                                                    else
+                                                    {
+                                                        array5[2, 0] = " O ";
+                                                        CompComplete = true;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (RN == 8)
+                                                    {
+                                                        if (array5[2, 1] == " X " || array5[2, 1] == " O ")
+                                                        {
+                                                        }
+                                                        else
+                                                        {
+                                                            array5[2, 1] = " O ";
+                                                            CompComplete = true;
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        if (array5[2, 2] == " X " || array5[2, 2] == " O ")
+                                                        {
+                                                        }
+                                                        else
+                                                        {
+                                                            array5[2, 2] = " O ";
+                                                            CompComplete = true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    } while (CompComplete == false);
+
+                    //Check if comp wins
+                    if (array5[0, 0] == " O " && array5[0, 1] == " O " && array5[0, 2] == " O ")
+                    {
+                        CompWins = true;
+                        GameComplete = true;
+                    }
+                    else
+                    {
+                        if (array5[1, 0] == " O " && array5[1, 1] == " O " && array5[1, 2] == " O ")
+                        {
+                            CompWins = true;
+                            GameComplete = true;
+                        }
+                        else
+                        {
+                            if (array5[2, 0] == " O " && array5[2, 1] == " O " && array5[2, 2] == " O ")
+                            {
+                                CompWins = true;
+                                GameComplete = true;
+                            }
+                            else
+                            {
+                                if (array5[0, 0] == " O " && array5[1, 0] == " O " && array5[2, 0] == " O ")
+                                {
+                                    CompWins = true;
+                                    GameComplete = true;
+                                }
+                                else
+                                {
+                                    if (array5[0, 1] == " O " && array5[1, 1] == " O " && array5[2, 1] == " O ")
+                                    {
+                                        CompWins = true;
+                                        GameComplete = true;
+                                    }
+                                    else
+                                    {
+                                        if (array5[0, 2] == " O " && array5[1, 2] == " O " && array5[2, 2] == " O ")
+                                        {
+                                            CompWins = true;
+                                            GameComplete = true;
+                                        }
+                                        else //diagonals
+                                        {
+                                            if (array5[0, 0] == " O " && array5[1, 1] == " O " && array5[2, 2] == " O ")
+                                            {
+                                                CompWins = true;
+                                                GameComplete = true;
+                                            }
+                                            else
+                                            {
+                                                if (array5[0, 2] == " O " && array5[1, 1] == " O " && array5[2, 0] == " O ")
+                                                {
+                                                    CompWins = true;
+                                                    GameComplete = true;
+                                                }
+                                                else
+                                                {
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (GameComplete == false)
+                {
+                    if (turn == 1) //was user's turn
+                    {
+                        turn = 0; //comp's turn now
+                    }
+                    else
+                    {
+                        turn = 1; //user's turn now
+                    }
+                }
+                else
+                { //game complete
+                }
+
+                LineBreak();
+
+            } while (GameComplete == false);
+
+            if (UserWins == true)
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    Console.Write(array5[y, 0]);
+                    Console.Write(array5[y, 1]);
+                    Console.WriteLine(array5[y, 2]);
+                }
+                LineBreak();
+                ShortDelay();
+                LineBreak();
+                Console.WriteLine("Well done");
+                LineBreak();
+                ShortDelay();
+                Console.WriteLine("You win");
+                ShortDelay();
+                ShortDelay();
+            }
+            else
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    Console.Write(array5[y, 0]);
+                    Console.Write(array5[y, 1]);
+                    Console.WriteLine(array5[y, 2]);
+                }
+                LineBreak();
+                ShortDelay();
+                LineBreak();
+                Console.WriteLine("Nice try");
+                LineBreak();
+                ShortDelay();
+                Console.WriteLine("The computer wins");
+                ShortDelay();
+                Console.WriteLine("Better luck next time");
+                ShortDelay();
+                ShortDelay();
+            }
+            Console.ReadKey();
+        }
+    }
+}
